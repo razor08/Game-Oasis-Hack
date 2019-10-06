@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BubEat</title>
+    
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+    <div id="intro">
+        <h1>Welcome to Bubeat</h1>
+        <small>Simple and fun multiplayer game.</small>
+        
+        <p><strong>What?</strong>Basically: run & eat! (And... 
+            one more thing...eating dots will increase your speed!:P )</p>
+        
+        <input type="text" id="name" placeholder="Enter your name...">
+        <br/> <br/>
+        &nbsp;<a href="#" id="submit">Play <span>&#10132;</span></a>  
+    </div>
+    
+    <script type="text/javascript" src="../../../socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.6/p5.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.6/addons/p5.dom.min.js"></script>
+    <script type="text/javascript" src="js/user.js"></script>
+    <script type="text/javascript" src="js/food.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+</body>
+<script>
+        <% if (flag == true) { %>
+            document.getElementById('name').value = "<%= addr %>";
+            document.getElementById('submit').click();                
+        <% } %> 
+</script>
+<script>
+    setInterval(function(){
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            console.log(this.responseText);
+    if (this.readyState == 4 && this.status == 200 && JSON.parse(this.responseText).now >= 305000 ) {
+      window.location = "http://10.2.89.29:3000/results";
+    }
+  };
+  xhttp.open("GET", "http://10.2.89.29:3000/time", true);
+  xhttp.send();
+    }, 1000);
+</script>
+</html>

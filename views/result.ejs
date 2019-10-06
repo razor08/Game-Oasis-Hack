@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Final Results</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>Result</h2>
+  <p>Total Score = Speed + 0.01 * Current Food Value</p>            
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name/Address</th>
+        <th>Score</th>
+      </tr>
+    </thead>
+    <tbody>
+        <% users.forEach(function(x) { %>
+      <tr>
+        <td><%= x.name %></td>
+        <td><%= x.speed %></td>
+      </tr>
+      <% }) %> 
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>
